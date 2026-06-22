@@ -46,19 +46,24 @@
             border-radius: 4px; 
         }
         
-        /* Главная большая кнопка DOWNLOAD */
+        /* Главная большая кнопка DOWNLOAD, которая ведет на itch.io */
         .btn-main { 
+            display: inline-block;
             background: red; 
             color: white; 
-            border: none; 
+            text-decoration: none;
             padding: 15px 40px; 
             font-size: 24px; 
             font-weight: bold; 
             margin-top: 40px; 
             cursor: pointer; 
+            border-radius: 4px;
+        }
+        .btn-main:hover {
+            background: #cc0000;
         }
         
-        /* Круглые стрелки переключения */
+        /* Круглые стрелки переключения страниц */
         .arrow { 
             background: #fff; 
             color: #000; 
@@ -69,48 +74,6 @@
             font-size: 20px; 
             cursor: pointer; 
             margin-top: 10px; 
-        }
-
-        /* Полностью черный экран выбора платформ (поверх сайта) */
-        .overlay { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(0, 0, 0, 0.98); 
-            display: none; 
-            justify-content: center; 
-            align-items: center; 
-            z-index: 999; 
-        }
-        
-        .modal { 
-            width: 90%; 
-            max-width: 500px; 
-        }
-        
-        /* Большие красные кнопки ANDROID и WINDOWS строго по вашему рисунку */
-        .btn-platform { 
-            display: block; 
-            background: red; 
-            color: white; 
-            text-decoration: none; 
-            padding: 20px; 
-            font-size: 32px; 
-            font-weight: bold; 
-            margin: 15px 0; 
-            text-transform: uppercase; 
-        }
-        
-        /* Маленькая кнопка закрытия окна */
-        .close-btn { 
-            color: #aaa; 
-            font-size: 24px; 
-            cursor: pointer; 
-            background: none; 
-            border: none; 
-            margin-bottom: 20px; 
         }
     </style>
 </head>
@@ -131,8 +94,8 @@
                 <button class="arrow" onclick="showComingSoon()">➔</button>
             </div>
         </div>
-        <!-- Большая красная кнопка скачивания -->
-        <button class="btn-main" onclick="openBox()">DOWNLOAD</button>
+        <!-- Большая красная кнопка скачивания, которая сразу и надежно ведет на itch.io -->
+        <a href="https://itch.io" target="_blank" class="btn-main">DOWNLOAD</a>
     </div>
 
     <!-- ЭКРАН 2: ЗАГЛУШКА (COMING SOON) -->
@@ -140,21 +103,6 @@
         <h1 style="font-size: 60px; color: #444; letter-spacing: 2px;">COMING SOON</h1>
         <!-- Стрелка Назад -->
         <button class="arrow" onclick="showChapter1()">◀</button>
-    </div>
-
-    <!-- ВСПЛЫВАЮЩЕЕ ОКНО (ВЫБОР ПЛАТФОРМЫ) -->
-    <div class="overlay" id="myBox">
-        <div class="modal">
-            <button class="close-btn" onclick="closeBox()">✕ Закрыть окно</button>
-            
-            <!-- Кнопка Android — теперь стабильно открывает страницу игры в новой вкладке на блоке скачивания -->
-            <a href="https://itch.io" target="_blank" class="btn-platform">ANDROID</a>
-            
-            <div style="font-size: 28px; margin: 15px 0; font-weight: bold;">OR</div>
-            
-            <!-- Кнопка Windows — теперь стабильно открывает страницу игры в новой вкладке на блоке скачивания -->
-            <a href="https://itch.io" target="_blank" class="btn-platform">WINDOWS</a>
-        </div>
     </div>
 
     <script>
@@ -166,14 +114,6 @@
         function showChapter1() {
             document.getElementById('coming-soon-screen').style.display = 'none';
             document.getElementById('chapter1-screen').style.display = 'block';
-        }
-
-        function openBox() {
-            document.getElementById('myBox').style.display = 'flex';
-        }
-
-        function closeBox() {
-            document.getElementById('myBox').style.display = 'none';
         }
     </script>
 
